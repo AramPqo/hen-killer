@@ -1,0 +1,35 @@
+.main {
+  height: 100vh;
+  user-select: none;
+  pointer-events: none;
+  img {
+    height: 99%;
+    width: 100%;
+  }
+}
+
+.paper {
+  height: 100vh;
+  user-select: none;
+  pointer-events: none;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .paper-x {
+    height: 1px;
+    border-bottom: 2px solid #a8dbfa;
+  }
+  .paper-y {
+    position: absolute;
+    top: 0;
+    left: 80px;
+    height: 100%;
+    background-color: #fd97c6;
+    width: 2px;
+    &:last-child {
+      left: 100px;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+body {
+  overflow: hidden;
+  margin: 0;
+  cursor: url('./assets/images/pngwing.com.png'), auto;
+}
+
+.shooted,
+.fail {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  z-index: 99;
+}
+
+.fail {
+  background-image: url(./assets/images/hole-fail.png);
+  background-repeat: no-repeat !important;
+  background-size: 80px 80px;
+}
+
+.shooted {
+  background-image: url(./assets/images/hole-success.png);
+  background-repeat: no-repeat !important;
+  background-size: 80px 80px;
+}
+
+.goal {
+  user-select: none !important;
+  z-index: 99999;
+  left: 50%;
+  // top: 50px;
+  width: 78px;
+  position: absolute;
+  // animation-duration: 2s;
+  // animation-fill-mode: forwards;
+
+  &.rotated {
+    transform: scaleX(-1);
+  }
+}

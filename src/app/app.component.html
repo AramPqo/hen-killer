@@ -1,0 +1,15 @@
+<h1>{{ point }}</h1>
+
+<div class="paper">
+  <div class="paper-x" *ngFor="let line of paperLines.x"></div>
+  <div class="paper-y" *ngFor="let line of paperLines.y"></div>
+</div>
+
+<img
+  class="goal"
+  move
+  (shoot)="run($event)"
+  [goal]="current"
+  [class.top]="current.isTop"
+  [class.rotated]="current.rotated"
+  src="./../assets/images/{{ current.name }}.gif" />
