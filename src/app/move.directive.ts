@@ -48,12 +48,12 @@ export class MoveDirective implements OnInit {
       eventY > clientRect.top
     ) {
       this.renderer.addClass(node, 'shooted');
-      this.sound = new Audio('./../assets/images/shoot-success.mp3');
+      this.sound = new Audio('./../assets/effects/shoot-success.mp3');
       this.sound.play();
       this.clear(1);
     } else {
       this.renderer.addClass(node, 'fail');
-      this.sound = new Audio('./../assets/images/shoot-fail.mp3');
+      this.sound = new Audio('./../assets/effects/shoot-fail.mp3');
       this.sound.play();
     }
 
