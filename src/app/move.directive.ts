@@ -16,6 +16,7 @@ import { takeRandomIndex } from './util/take-index';
 })
 export class MoveDirective implements OnInit {
   @Input() goal!: IGoal;
+  @Input() isMobile!: boolean;
   @Output() shoot = new EventEmitter();
   sound!: any;
   element!: HTMLImageElement;
@@ -36,8 +37,10 @@ export class MoveDirective implements OnInit {
     const clientRect = this.el.nativeElement.getBoundingClientRect();
     const goalX = clientRect.width + clientRect.left;
     const goalY = clientRect.height + clientRect.top;
-    const eventX = event.x + 20;
-    const eventY = event.y + 22;
+
+    const eventX = this.isMobile ? event.x : event.x + 20;
+    const eventY = this.isMobile ? event.y : event.y + 22;
+
     const node = document.createElement('div');
     this.renderer.setStyle(node, 'left', `${eventX - 38}px`);
     this.renderer.setStyle(node, 'top', `${eventY - 45}px`);
@@ -48,12 +51,12 @@ export class MoveDirective implements OnInit {
       eventY > clientRect.top
     ) {
       this.renderer.addClass(node, 'shooted');
-      this.sound = new Audio('./../assets/effects/shoot-success.mp3');
+      this.sound = new Audio('./assets/effects/shoot-success.mp3');
       this.sound.play();
       this.clear(1);
     } else {
       this.renderer.addClass(node, 'fail');
-      this.sound = new Audio('./../assets/effects/shoot-fail.mp3');
+      this.sound = new Audio('./assets/effects/shoot-fail.mp3');
       this.sound.play();
     }
 

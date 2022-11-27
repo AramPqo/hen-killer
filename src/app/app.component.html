@@ -8,8 +8,9 @@
 <img
   class="goal"
   move
+  [isMobile]="isMobile"
   (shoot)="run($event)"
   [goal]="current"
   [class.top]="current.isTop"
   [class.rotated]="current.rotated"
-  src="./../assets/images/{{ current.name }}.gif" />
+  src="./assets/images/{{ current.name }}.gif" />
